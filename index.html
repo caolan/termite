@@ -1,0 +1,10 @@
+<script src="jam/require.js"></script>
+<script>
+  require(['termite'], function (p) {
+    var wid = p.startWorker('./jam/require.js');
+    var pid = p.spawn('workers/example');
+    p.deliver('fromid', pid, {example: 'message'});
+    var console_pid = p.spawnPage('workers/console');
+    p.deliver('fromid', console_pid, {log: 'test message'});
+  });
+</script>
