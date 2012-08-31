@@ -5,7 +5,7 @@ define(['exports'], function (exports) {
     };
 
     exports.receive = function (process, msg, from, state) {
-        process.send(2, {log: 'message from example worker'});
+        process.send('console', {log: 'message from example worker'});
         return {example: 'state', foo: 456, bar: 'baz'};
     };
 

@@ -2,10 +2,10 @@
 <script>
   require(['lib/process-manager'], function (p) {
     var pm = window.pm = p.create('./jam/require.js', 2);
-    var epid = pm.spawn('workers/example');
-    var cpid = pm.spawn('workers/console', true);
+    pm.spawn('example', './processes/example');
+    pm.spawn('console', './processes/console', true);
     setTimeout(function () {
-      pm.deliver('fromid', epid, 'some message');
+      pm.deliver('fromid', 'example', 'some message');
     }, 5000);
   });
 </script>

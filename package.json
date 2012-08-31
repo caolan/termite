@@ -1,7 +1,10 @@
 {
+    "name": "termite",
+    "version": "0.0.1",
+    "description": "Concurrent JavaScript workers using message-passing and web-worker pools",
     "jam": {
+        "main": "lib/termite.js",
         "dependencies": {
-            "lodash": "0.6.0"
         }
     }
 }
