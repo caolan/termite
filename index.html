@@ -1,10 +1,11 @@
 <script src="jam/require.js"></script>
 <script>
-  require(['termite'], function (p) {
-    var wid = p.startWorker('./jam/require.js');
-    var pid = p.spawn('workers/example');
-    p.deliver('fromid', pid, {example: 'message'});
-    var console_pid = p.spawnPage('workers/console');
-    p.deliver('fromid', console_pid, {log: 'test message'});
+  require(['lib/process-manager'], function (p) {
+    var pm = window.pm = p.create('./jam/require.js', 2);
+    var epid = pm.spawn('workers/example');
+    var cpid = pm.spawn('workers/console', true);
+    setTimeout(function () {
+      pm.deliver('fromid', epid, 'some message');
+    }, 5000);
   });
 </script>
