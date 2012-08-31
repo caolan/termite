@@ -5,12 +5,11 @@ define(['exports'], function (exports) {
     };
 
     exports.receive = function (process, from, msg, state) {
-        //throw new Error('console received message');
         if (msg.log) {
-            console.log(['from ' + from, msg.log]);
+            console.log([from, msg.log]);
         }
         if (msg.error) {
-            console.error(['from ' + from, msg.log]);
+            console.error([from, msg.log]);
         }
         return state;
     };
