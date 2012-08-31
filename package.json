@@ -5,6 +5,8 @@
     "jam": {
         "main": "lib/termite.js",
         "dependencies": {
+            "qwery": "3.3.11",
+            "bean": "0.4.11-1"
         }
     }
 }
